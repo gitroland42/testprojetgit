@@ -1,0 +1,51 @@
+<!-- <p>add-planet works!</p> -->
+
+<form  id="center" #planetForm="ngForm" (ngSubmit)="ajoutPlanete()">
+
+    <label for="id">saisir l'id de la planete ?</label>
+    <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="newPlanete.id" #id="ngModel">
+    <div [hidden]="id.valid"
+      class="alert alert-danger">
+      L' id de la planète est requis
+    </div>
+
+    <label for="nom">saisir le nom de la planete ?</label>
+    <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="newPlanete.nom" #nom="ngModel">
+    <div [hidden]="nom.valid"
+      class="alert alert-danger">
+      Le nom de la planète est requis
+    </div>
+
+    <label for="nbhabitant">saisir le nb habitant ?</label>
+    <input type="number" class="form-control" id="nbhabitant" name="nbhabitant" required [(ngModel)]="newPlanete.nbHabitant" #nbhabitant="ngModel">
+    <!-- <div [hidden]="nbhabitant.valid"
+      class="alert alert-danger">
+      Le nom de la planète est requis
+    </div> -->
+
+    <label for="allegiance">saisir l'allegiance ?</label>
+    <input type="text" class="form-control" id="allegiance" name="allegiance" required [(ngModel)]="newPlanete.allegiance" #allegiance="ngModel">
+    <div [hidden]="allegiance.valid"
+      class="alert alert-danger">
+      L'allegiance de la planète est requis
+    </div>
+
+    <label for="nbkmterre">saisir le nb km de la terre ?</label>
+    <input type="number" class="form-control" id="nbkmterre" name="nbkmterre" required [(ngModel)]="newPlanete.nbKmTerre" #nbkmterre="ngModel">
+    <!-- <div [hidden]="nbhabitant.valid"
+      class="alert alert-danger">
+      Le nom de la planète est requis
+    </div> -->
+
+    <!-- <label for="terrain">Type de terrain</label>
+    <select class="form-control" id="terrain"
+    required
+    [(ngModel)]="planet.terrain" name="terrain" #terrain="ngModel">
+    <option *ngFor="let terrain of terrains" [value]="terrain">{{terrain}}</option>
+    </select>  -->
+    <!-- <div [hidden]="terrain.valid"
+    class="alert alert-danger">
+    Le type de terrain est requis
+    </div>  -->
+    <input [disabled]="!planetForm.valid" type="submit">
+  </form>

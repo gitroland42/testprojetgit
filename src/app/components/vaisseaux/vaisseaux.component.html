@@ -1,0 +1,43 @@
+<h2>vaisseaux star wars!</h2>
+
+<!-- recup tableaux bootstrap -->
+<!-- <table>
+  <thead>
+
+  </thead>
+  <tbody>
+  <tr *ngfor="let vaisseau of this.vaissseau">
+    <td>{{vaisseau.nom}}</td>
+    <td>{{vaisseau.boolean?'oui':'non'</td>  // ternaire
+  </tr>
+</tbody>
+</table> -->
+
+<a routerLink="/vaisseaux/add">Ajouter un vaisseaux</a>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Model</th>
+      <th scope="col">LightSpeed</th>
+      <th scope="col">Passager</th>
+      <th scope="col">Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vaisseau1 of this.mesVaisseaux">
+      <td>{{vaisseau1.id}}</td>
+      <td>{{vaisseau1.nom}}</td>
+      <td>{{vaisseau1.model}}</td>
+      <td>{{ vaisseau1.lightSpeed?'oui':'non' }}</td>
+      <td>{{vaisseau1.nbPassager}}</td>
+      <td><a [routerLink]="['/vaisseaux', vaisseau1.id]">voir</a></td>
+       <!-- lien vers page html avec parametres -->
+    </tr>
+
+  </tbody>
+</table>
+
+

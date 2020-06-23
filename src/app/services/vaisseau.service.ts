@@ -28,4 +28,23 @@ export class VaisseauService {
 
    return this.vehiculs.filter(vaisseau=>vaisseau.id==id)[0];
   }
+
+  ajoutVaisseauForm(vaisseauFormulaire:Vaisseau):void{
+     this.vehiculs.push(vaisseauFormulaire);
+ }
+
+ deleteVaisseau(vaisseau:Vaisseau):Vaisseau[]{
+  // console.log(vaisseau);
+  // on filtre le tableau en prenant les valeurs qui sont differentes de la valeur du parametre
+  this.vehiculs=this.vehiculs.filter(vaisseausupprime=> vaisseau!==vaisseausupprime);
+  // console.log(this.vehiculs);
+  return this.vehiculs;
+}
+
+majVaisseauForm(vehicul:Vaisseau):Vaisseau[]{
+  this.vehiculs.filter(vehiculMaj=>vehicul===vehiculMaj)[0]=vehicul
+  // console.log(this.vehiculs);
+  return this.vehiculs;
+}
+
 }

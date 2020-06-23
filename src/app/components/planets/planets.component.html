@@ -1,5 +1,10 @@
-<h2>planets star wars</h2>
+<h2>planets star wars au {{dateJour |date:'dd/MM/yyyy'}}</h2>
+ <!-- bien mettre MM car mm correspond aux minutes -->
 
+ <!-- affichage de l'objet planete à l'ecran avec le |json -->
+<h5>{{this.mesPlanettes |json}}</h5>
+<!-- routerLink remplace le href  specifique a angular, navigation sans rechargement de page-->
+<!-- routerLink ecrit de cette maniere quand on pas de parametres-->
 <a routerLink="/planets/add">Ajouter une planete</a>
 <!-- <img src=../../..assets/images/ > -->
 <table class="table table-dark">
@@ -16,11 +21,15 @@
   <tbody>
     <tr *ngFor="let planete of this.mesPlanettes">
       <td>{{planete.id}}</td>
-      <td>{{planete.nom}}</td>
+      <td>{{planete.nom|uppercase}}</td>
       <td>{{planete.nbHabitant}}</td>
       <td>{{planete.allegiance}}</td>
       <td>{{planete.nbKmTerre}}</td>
       <td><a [routerLink]="['/planets', planete.id]">voir</a></td>
+
+      <td> <a style="text-decoration:underline;color:red" (click)="supprimerPlanete(planete)">supprimer la planete {{planete.nom}}</a></td>
+      <!-- routerLink ecrit avec des crochets quand on des parametres -->
+      <td><a [routerLink]="['/planets/maj', planete.id]">editer la planete</a></td>
     </tr>
 
   </tbody>

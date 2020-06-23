@@ -1,4 +1,8 @@
-<h2>vaisseaux star wars!</h2>
+<h2>vaisseaux star wars! au {{dateJour |date:'dd/MM/yyyy'}}</h2>
+ <!-- bien mettre MM car mm correspond aux minutes -->
+
+<!-- affichage de l'objet planete à l'ecran avec le |json -->
+<h5>{{this.mesVaisseaux|json}}</h5>
 
 <!-- recup tableaux bootstrap -->
 <!-- <table>
@@ -29,12 +33,15 @@
   <tbody>
     <tr *ngFor="let vaisseau1 of this.mesVaisseaux">
       <td>{{vaisseau1.id}}</td>
-      <td>{{vaisseau1.nom}}</td>
+      <td>{{vaisseau1.nom|uppercase}}</td>
       <td>{{vaisseau1.model}}</td>
       <td>{{ vaisseau1.lightSpeed?'oui':'non' }}</td>
       <td>{{vaisseau1.nbPassager}}</td>
       <td><a [routerLink]="['/vaisseaux', vaisseau1.id]">voir</a></td>
        <!-- lien vers page html avec parametres -->
+       <!-- procedure supprimerVaisseau() dans le .ts -->
+       <td> <a style="text-decoration:underline;color:red" (click)="supprimerVaisseau(vaisseau1)">supprimer le vaisseau {{vaisseau1.nom}}</a></td>
+       <td><a [routerLink]="['/vaisseaux/maj', vaisseau1.id]">editer la planete</a></td>
     </tr>
 
   </tbody>

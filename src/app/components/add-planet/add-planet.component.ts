@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Planet } from 'src/app/models/planet';
 import { PlanetService } from 'src/app/services/planet.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-planet',
   templateUrl: './add-planet.component.html',
@@ -11,25 +13,26 @@ import { PlanetService } from 'src/app/services/planet.service';
 export class AddPlanetComponent implements OnInit {
 
   newPlanete=new Planet();
-  planet: Planet;
+  // planet: Planet;
+  // dans le constructeur pour pouvoir utiliser les services dans les fonctions ci dessous
+  constructor(private planetService: PlanetService, private router: Router) { }
 
-  constructor() { }
 
   ngOnInit(): void {
-
+    // this.planet = new Planet();
   }
 
   ajoutPlanete():void{
-    console.log(this.newPlanete);
-    this.planet = new Planet();
+    // console.log(this.newPlanete);
+    //this.planet = new Planet();
+
+    this.planetService.ajoutPlaneteForm(this.newPlanete);
+    this.router.navigate(['/planets']);
   }
+
+
 }
 
 
 
-// planet: Planet;
-// constructor(private planetService: PlanetsService, private router: Router) { }
-// ngOnInit() {
-// this.planet = new Planet();
-// }
 

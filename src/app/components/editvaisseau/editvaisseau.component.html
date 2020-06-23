@@ -1,0 +1,37 @@
+
+<form #vaisseauForm="ngForm" (ngSubmit)="editerVaisseau(newVaisseau)">
+
+   <label for="nom">saisir le nom du vaisseau ?</label>
+  <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="newVaisseau.nom" #nom="ngModel">
+  <div [hidden]="nom.valid"
+    class="alert alert-danger">
+    Le nom du vaisseau est requis
+  </div>
+
+  <label for="model">saisir le model du vaisseau ?</label>
+  <input type="text" class="form-control" id="model" name="model" required [(ngModel)]="newVaisseau.model" #model="ngModel">
+  <div [hidden]="nom.valid"
+    class="alert alert-danger">
+    Le model du vaisseau est requis
+  </div>
+
+  <label for="nbpassager">saisir le nb de passager ?</label>
+  <input type="number" class="form-control" id="nbpassager" name="nbpassager"  [(ngModel)]="newVaisseau.nbPassager">
+  <!-- <div [hidden]="nbhabitant.valid"
+    class="alert alert-danger">
+    Le nom de la planète est requis
+  </div> -->
+
+  <label for="lightspeed">lightspeed ?</label>
+  <div>
+    <input type="radio" id="vrai" name="lightspeed" [(ngModel)]="newVaisseau.lightSpeed" [value]="true">
+   <label for="vrai">Oui</label>
+
+    <input type="radio" id="faux" name="lightspeed" [(ngModel)]="newVaisseau.lightSpeed" [value]="false">
+    <label for="faux">Non</label>
+
+  </div>
+<br>
+  <input [disabled]="!vaisseauForm.valid" type="submit">
+</form>
+

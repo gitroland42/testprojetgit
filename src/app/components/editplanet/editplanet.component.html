@@ -1,21 +1,15 @@
-<!-- <p>add-planet works!</p> -->
+<p>editplanet works!</p><!-- <p>add-planet works!</p> -->
 
-<!-- #planetForm="ngForm", tester planetForm.valid a la fin pour afficher le bouton submit -->
-<!-- (ngSubmit)="ajoutPlanete()"  appel de la procedure ajoutPlanete a l'evenement ngSubmit -->
-<!-- si on utilise ngform, penser à importer import {FormsModule} from '@angular/forms' dans app-module.ts -->
-<form  id="center" #planetForm="ngForm" (ngSubmit)="ajoutPlanete()">
-
-    <label for="id">saisir l'id de la planete ?</label>
+<form  id="center" #planetForm="ngForm" (ngSubmit)="editerPlanete(newPlanete)">
+<!-- suppression de la ligne id , on ne peut pas le modifier -->
+    <!-- <label for="id">saisir l'id de la planete ?</label>
     <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="newPlanete.id" #id="ngModel">
     <div [hidden]="id.valid"
       class="alert alert-danger">
       L' id de la planète est requis
-    </div>
+    </div> -->
 
     <label for="nom">saisir le nom de la planete ?</label>
-    <!-- minlength="10" minimun 10 caracteres -->
-    <!-- <input type="text" class="form-control" id="nom" name="nom" minlength="10" required [(ngModel)]="newPlanete.nom" #nom="ngModel"> -->
-    <!-- #nom // pour definir une varaible en html nomé nom , utilise dans les formulaires-->
     <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="newPlanete.nom" #nom="ngModel">
     <div [hidden]="nom.valid"
       class="alert alert-danger">
@@ -38,20 +32,7 @@
 
     <label for="nbkmterre">saisir le nb km de la terre ?</label>
     <input type="number" class="form-control" id="nbkmterre" name="nbkmterre" [(ngModel)]="newPlanete.nbKmTerre" #nbkmterre="ngModel">
-    <!-- <div [hidden]="nbhabitant.valid"
-      class="alert alert-danger">
-      Le nom de la planète est requis
-    </div> -->
 
-    <!-- <label for="terrain">Type de terrain</label>
-    <select class="form-control" id="terrain"
-    required
-    [(ngModel)]="planet.terrain" name="terrain" #terrain="ngModel">
-    <option *ngFor="let terrain of terrains" [value]="terrain">{{terrain}}</option>
-    </select>  -->
-    <!-- <div [hidden]="terrain.valid"
-    class="alert alert-danger">
-    Le type de terrain est requis
-    </div>  -->
     <input [disabled]="!planetForm.valid" type="submit">
   </form>
+
